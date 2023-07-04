@@ -38,9 +38,11 @@ class DiscussionsController < ApplicationController
     def set_discussion
       @discussion = Discussion.find(params[:id])
     end
-  
+
+
     def discussion_params
-      params.require(:discussion).permit(:discussion_title, :content, :user_id, :channel_id, :likes)
+      {discussion_title: params[:discussion_title], content: params[:content],  user_id: params[:user_id], channel_id: params[:channel_id], likes: params[:likes]}
     end
+
   end
   

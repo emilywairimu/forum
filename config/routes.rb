@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :profiles
   resources :users
-  resources :discussions
+  resources :discussions do
+    resources :replies 
+  end
   resources :channels
   
     post '/users', to: 'users#create'
