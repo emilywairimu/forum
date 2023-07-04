@@ -1,8 +1,3 @@
-# config.session_store :cookie_store, key: '_your_app_session'
-# config.api_only = false
-config.middleware.use ActionDispatch::Session::CookieStore
-
-
 
 require_relative "boot"
 
