@@ -5,9 +5,19 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.create(username: params[:username], email: params[:email], password: params[:password])
-    render json: user, status: :created
+    user = User.new(username: params[:username], email: params[:email], password: params[:password])
+  
+    if user.save
+      render json: user, status: :created
+    else
+      render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
+    end
   end
+
+  # def create
+  #   user = User.create(username: params[:username], email: params[:email], password: params[:password])
+  #   render json: user, status: :created
+  # end
 
 #   def current_user
 #     user = User.find_by(id: session[:user_id])
