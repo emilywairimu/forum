@@ -44,8 +44,12 @@ class ChannelsController < ApplicationController
       @channel = Channel.find(params[:id])
     end
   
+    # def channel_params
+    #   params.require(:channel).permit(:channel_name)
+    # end
     def channel_params
-      params.require(:channel).permit(:channel_name)
+      { channel_name: params[:channel_name] }
     end
+    
   end
   
