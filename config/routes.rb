@@ -9,8 +9,8 @@ Rails.application.routes.draw do
     post '/users', to: 'users#create'
 
     post "/login", to:"session#login"
-    match "/logout", to: "session#logout", via: [:delete, :get]
-    # get '/users/current', to: 'users#current'
+   
+    get '/current', to: 'users#current_user'
 
-    # delete "/logout", to:"session#logout"
+    delete "/logout", to:"session#logout"
 end
